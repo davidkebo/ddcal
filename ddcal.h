@@ -1,4 +1,4 @@
-/* $Id: ddcal.h,v 1.9 1996/11/09 02:53:21 fabio Exp fabio $ */
+/* $Id: ddcal.h,v 1.11 2015/01/05 06:42:17 fabio Exp fabio $ */
 
 /*
 **	Header for calculator program
@@ -24,7 +24,7 @@ int ddType;
 int ddTypeSave;
 char *defname[] = {" "};
 int noutputs;
-char *onames[100];
+char const *onames[100];
 DdNode *nodes[100];
 #else
 extern DdManager *manager;
@@ -47,8 +47,8 @@ struct symtab {
     int type;
 } symtab[NSYMS];
 
-struct symtab *symlook();
-struct symtab *exists();
-int bddDump();
-int do_last();
+struct symtab *symlook(char const *, int);
+struct symtab *exists(char const *, int);
+int bddDump(DdManager *, DdNode **, char *, int);
+int do_last(char *, int);
 

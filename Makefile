@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.11 2004/02/04 05:19:37 fabio Exp fabio $
+# $Id: Makefile,v 1.14 2015/01/05 15:05:30 fabio Exp fabio $
 
 # Makefile for ddcal
 
@@ -6,12 +6,12 @@
 PREFIX	= /usr/local/bin
 
 # Set WHERE to the directory of the CUDD distribution.
-WHERE	= ../cudd-2.4.2
+WHERE	= ../cudd-2.5.1
 INCLUDE	= $(WHERE)/include
 LIBS	= $(WHERE)/cudd/libcudd.a $(WHERE)/mtr/libmtr.a \
 	$(WHERE)/st/libst.a $(WHERE)/util/libutil.a \
 	$(WHERE)/epd/libepd.a
-STDLIBS	= -lfl -lm
+STDLIBS	= -lm
 LEX	= flex
 YACC	= bison -y
 # If you do not have flex and bison, you may want to try the next three
@@ -23,7 +23,7 @@ YACC	= bison -y
 CC	= gcc
 #CC	= cc
 #CFLAGS	= -g -Wall
-CFLAGS	= -g -O6
+CFLAGS	= -g -O3
 #CFLAGS	= -O
 INSTALL	= cp
 

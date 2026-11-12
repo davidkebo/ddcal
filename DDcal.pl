@@ -21,7 +21,7 @@
 #
 #  Author	[Fabio Somenzi <Fabio@Colorado.EDU>]
 #
-#  Revision	[$Id: DDcal.pl,v 1.30 2010/04/22 17:00:18 fabio Exp fabio $]
+#  Revision	[$Id: DDcal.pl,v 1.32 2015/01/05 07:20:04 fabio Exp fabio $]
 #
 #  Copyright	[Copyright (c) 1996 Fabio Somenzi. All rights reserved.
 #		This program is free software; you can redistribute it
@@ -45,7 +45,7 @@ use strict;
 use subs qw(dpos view_widget_code handler dialogError entryFileLoad entryFileSave readFile);
 
 my ($VIEW,$VIEW_TEXT);
-my $VERSION = "0.8";
+my $VERSION = "0.9";
 
 ###############################################################################
 # Create and initialize main window.
@@ -73,7 +73,7 @@ $MW->bind('<Meta-q>' => $command);
 
 push(@ARGV,"end");		# this is a workaround for a Perl bug.
 
-while (defined(@ARGV) && $ARGV[0] =~ /^-/) {
+while (defined($ARGV[0]) && $ARGV[0] =~ /^-/) {
     if ($ARGV[0] eq "-program") {
 	shift;
 	$PROGNAME = shift;

@@ -55,14 +55,14 @@ PLATFORMS
 DDcal 0.8 has been tested under GNU/Linux Ubuntu 9.10 and Cygwin with
 the program versions listed below.
 
-cudd 2.4.2
-gcc 4.3.4 and 4.4.1
-bison 2.4.1 and 2.4.2
-flex 2.5.35
-graphviz 2.20.2 and 2.26.3
-perl 5.10.0 and 5.10.1
-perl-tk 804.028
-cygwin 1.7.5
+cudd 2.5.1
+gcc 4.8.2, 4.8.3, and 4.9.1
+bison 3.0.2
+flex 2.5.35 and 2.5.39
+graphviz 2.36.0 and 2.38.0
+perl 5.14.2, 5.18.2, and 5.20.1
+perl-tk 804.030, 804.031, and 804.032
+cygwin 1.7.33
 
 It has also been built under some other flavors of Linux and versions
 of SunOS without problems.  Your mileage may vary.

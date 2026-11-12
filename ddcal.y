@@ -1,5 +1,5 @@
 %{
-/* $Id: ddcal.y,v 1.26 2009/02/21 19:58:06 fabio Exp fabio $ */
+/* $Id: ddcal.y,v 1.28 2015/01/05 07:05:31 fabio Exp fabio $ */
 #include <string.h>
 #include <math.h>
 #define DDCAL_MAIN
@@ -533,14 +533,14 @@ bddDump(
     FILE *fp;			/* file descriptor for file output */
     char s[512];		/* buffer for communications through pipe */
     char *args[4];		/* arguments for call to dot */
-    char **inames = NULL;	/* array of input names */
+    char const **inames = NULL;	/* array of input names */
     int retval = 0;		/* 0 -> failure; 1 -> success */
     struct symtab *sp;
     int index;
     int pid;
 
     /* Find the input names. */
-    inames = ALLOC(char *,Cudd_ReadSize(dd));
+    inames = ALLOC(char const *,Cudd_ReadSize(dd));
     if (inames == NULL) {
 	(void) fprintf(stderr,"Panic: malloc returned NULL!\n");
 	exit(2);
@@ -613,8 +613,8 @@ bddDump(
     FREE(inames);
 
     while (!feof(fromCommand)) {
-	fgets(s,100,fromCommand);
-	if (!feof(fromCommand)) (void) fprintf(stdout,"%s",s);
+	if (fgets(s,100,fromCommand))
+	    (void) fprintf(stdout,"%s",s);
     }
 
     return(1);

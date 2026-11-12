@@ -1,5 +1,7 @@
+%option noyywrap
+
 %{
-/* $Id: ddcal.l,v 1.10 1997/09/23 19:24:20 fabio Exp fabio $ */
+/* $Id: ddcal.l,v 1.11 2015/01/05 15:04:19 fabio Exp fabio $ */
 #include "ddcal.h"
 #include "y.tab.h"
 #include <math.h>
