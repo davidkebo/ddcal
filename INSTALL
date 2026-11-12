@@ -1,4 +1,4 @@
-Revision: $Id: INSTALL,v 1.10 2004/02/04 05:17:03 fabio Exp fabio $
+Revision: $Id: INSTALL,v 1.11 2010/04/22 16:44:10 fabio Exp fabio $
 
 This file contains installation instructions for DDcal.
 
@@ -7,54 +7,66 @@ PREREQUISITES
 
 To build DDcal you need to have installed on your system:
 
-graphviz 1.7	(or higher specifically, you need dot in your PATH to run DDcal)
+graphviz 1.7	(or higher; specifically, you need dot in your PATH to run DDcal)
 perl 5.6.0	(or higher)
 Tk800.023	(or higher; this is perl/Tk)
-flex 2.5.4	(or higher or lex)
-bison 1.28	(or higher or yacc)
+flex 2.5.4	(or lex)
+bison 1.28	(or yacc)
 cudd-2.3.1	(or higher)
 
-graphviz 1.7 is available from
-	http://www.research.att.com/sw/tools/graphviz
+graphviz is available from
+	http://www.graphviz.org
 perl and perl/Tk are available from any CPAN site. See
 	http://www.perl.com/perl/
 or
 	ftp://ftp.perl.com/perl/
-for the list of the CPAN sites. You can also find the older version of
-perl and Tk there, but there should be no reason not to install the
-most recent ones.
-flex and bison are available from
+for the list of the CPAN sites.  flex and bison are available from
 	ftp://ftp.gnu.org/
 or one of its mirrors.
-cudd-2.3.1 or a more recent release is available from
+The current release of CUDD is available from
 	ftp://vlsi.colorado.edu/pub/
 
 BUILDING DDcal
 ==============
 
-Look at the Makefile. The only things that may need to be changed are the
+Look at the Makefile.  The only things that may need to be changed are the
 definitions of WHERE, PREFIX, EXE, and PL.
 
-Type `make'. This should build ddcal (which is called by DDcal). To test
-the program, execute DDcal.pl. The `examples' directory contains some
-files that you may want to load with the `Load' button.
+Type `make'.  This should build ddcal (which is called by DDcal).  To
+test the program, execute DDcal.pl:
 
-Once you are satisfied, you can install DDcal by typing `make install.'
-The default installation directory is /usr/local/bin. It can be changed
-by changing the definition of PREFIX in the Makefile. Notice that
-DDcal.pl is installed as DDcal under Unix and DDcal.pl under
-Windows/Cygwin. You need write access to the taget installation directory.
+  ./DDcal.pl -program ./ddcal
+
+The `examples' directory contains some files that you may want to load
+with the `Load' button.
+
+Once you are satisfied, you can install DDcal by typing `make
+install.'  The default installation directory is /usr/local/bin.  It
+can be changed by changing the definition of PREFIX in the Makefile.
+Notice that DDcal.pl is installed as DDcal under Unix and DDcal.pl
+under Windows/Cygwin.  You need write access to the taget installation
+directory.
 
 That should be it.
 
 PLATFORMS
 =========
 
-DDcal has been tested only under GNU/Linux RedHat 7.1 with
-the program versions listed above.  It has also been built under some
-versions of SunOS without any problems. Your mileage may vary.
-DDcal also works under Windows/Cygwin with recent versions of cygwin.
-The tricky part is to get perl-Tk to work.
+DDcal 0.8 has been tested under GNU/Linux Ubuntu 9.10 and Cygwin with
+the program versions listed below.
+
+cudd 2.4.2
+gcc 4.3.4 and 4.4.1
+bison 2.4.1 and 2.4.2
+flex 2.5.35
+graphviz 2.20.2 and 2.26.3
+perl 5.10.0 and 5.10.1
+perl-tk 804.028
+cygwin 1.7.5
+
+It has also been built under some other flavors of Linux and versions
+of SunOS without problems.  Your mileage may vary.
+
 
 FEEDBACK
 ========

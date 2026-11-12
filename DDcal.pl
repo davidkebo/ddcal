@@ -21,7 +21,7 @@
 #
 #  Author	[Fabio Somenzi <Fabio@Colorado.EDU>]
 #
-#  Revision	[$Id: DDcal.pl,v 1.27 2004/02/04 05:46:56 fabio Exp fabio $]
+#  Revision	[$Id: DDcal.pl,v 1.30 2010/04/22 17:00:18 fabio Exp fabio $]
 #
 #  Copyright	[Copyright (c) 1996 Fabio Somenzi. All rights reserved.
 #		This program is free software; you can redistribute it
@@ -45,7 +45,7 @@ use strict;
 use subs qw(dpos view_widget_code handler dialogError entryFileLoad entryFileSave readFile);
 
 my ($VIEW,$VIEW_TEXT);
-my $VERSION = "0.6";
+my $VERSION = "0.8";
 
 ###############################################################################
 # Create and initialize main window.
@@ -60,7 +60,7 @@ my $DRAWID = 1;
 my $COMPLEMENT_ARCS = 1;
 my $FONT = '-*-Helvetica-Medium-R-Normal--*-140-*-*-*-*-*-*';
 my $CFONT = '-*-Helvetica-Bold-R-Normal--*-140-*-*-*-*-*-*';
-my $CANVAS_HEIGHT = "20c";
+my $CANVAS_HEIGHT = 0.65 * $MW->screenheight();
 my @HISTORY = ();
 my $HISTORYPTR = $#HISTORY;
 my $command =  sub {exit(0);};
@@ -431,7 +431,7 @@ sub process_statement {
 		$name = "unknown";
 	    }
 	    $thisline =~ s/^$name\s+//;
-	    $thisline =~ /((\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+))/;
+	    $thisline =~ /((\d+\.?\d*)\s+(\d+\.?\d*)\s+(\d+\.?\d*)\s+(\d+\.?\d*))/;
 	    my $numbers = $1;
 	    my $center_x = $2;
 	    my $center_y = $3;
@@ -513,7 +513,7 @@ sub process_statement {
 	    @points = ();
 	    my ($thispoint,$thisx,$thisy);
 	    for (1 .. $points) {
-		$thisline =~ /((\d+\.\d+)\s+(\d+\.\d+))/;
+		$thisline =~ /((\d+\.?\d*)\s+(\d+\.?\d*))/;
 		$thispoint = $1;
 		$thisx = $2;
 		$thisy = $3;
